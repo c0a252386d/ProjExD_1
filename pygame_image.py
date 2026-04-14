@@ -23,18 +23,33 @@ def main():
         key_lst = pg.key.get_pressed()  # 練習10：すべてのキーの押下状態の取得
         # print(key_lst)
 
-
+        a=0
+        b=0
+        c=0
+        d=0
         if key_lst[pg.K_UP]:  # 上矢印キーが押されていたら
-            kk_rct.move_ip(0, -1)
-        elif key_lst[pg.K_DOWN]:  # 下矢印キーが押されていたら
-            kk_rct.move_ip(0, +1)
-        elif key_lst[pg.K_LEFT]:  # 左矢印キーが押されていたら
-            kk_rct.move_ip(-1, 0)
-        elif key_lst[pg.K_RIGHT]:  # 右矢印キーが押されていたら
-            kk_rct.move_ip(+2, 0)
-        else:
-            kk_rct.move_ip(-1,0)
+            a=-1
+        if key_lst[pg.K_DOWN]:  # 下矢印キーが押されていたら
+            b=+1
+        if key_lst[pg.K_LEFT]:  # 左矢印キーが押されていたら
+            c=-1
+        if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されていたら
+            d=+2
+        
+        kk_rct.move_ip(-1+c+d,0+a+b)
 
+        #-----------
+        # if key_lst[pg.K_UP]:  # 上矢印キーが押されていたら
+        #     kk_rct.move_ip(0, -1)
+        # elif key_lst[pg.K_DOWN]:  # 下矢印キーが押されていたら
+        #     kk_rct.move_ip(0, +1)
+        # elif key_lst[pg.K_LEFT]:  # 左矢印キーが押されていたら
+        #     kk_rct.move_ip(-1, 0)
+        # elif key_lst[pg.K_RIGHT]:  # 右矢印キーが押されていたら
+        #     kk_rct.move_ip(+2, 0)
+        # else:
+        #     kk_rct.move_ip(-1,0)
+        #-----------
 
         x = tmr%3200  # 練習5
         screen.blit(bg_img, [-x, 0]) #練習2
